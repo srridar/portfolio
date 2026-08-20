@@ -77,3 +77,35 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+@keyframes infiniteTextReveal {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  70% {
+    width: 100%;
+    opacity: 1;
+  }
+  85% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 0%;
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgb(33, 100, 168); /* teal-600 */
+  }
+}

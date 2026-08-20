@@ -108,7 +108,7 @@ export default function ProjectSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-sm font-semibold tracking-widest text-emerald-400 uppercase mb-2">
+          <h2 className="text-sm font-semibold tracking-widest text-sky-400 uppercase mb-2">
             Selected Works
           </h2>
           <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
@@ -128,7 +128,7 @@ export default function ProjectSection() {
                 onClick={() => setActiveTab(project.id)}
                 className={`px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                   activeTab === project.id
-                    ? 'bg-emerald-500 text-slate-950 shadow-md font-semibold'
+                    ? 'bg-sky-500 text-slate-950 shadow-md font-semibold'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -145,13 +145,13 @@ export default function ProjectSection() {
             {/* Left Column: Information & Metrics */}
             <div className="lg:col-span-5 space-y-6">
               <div>
-                <span className="text-xs font-mono px-3 py-1 bg-gray-950 text-emerald-400 border border-emerald-800/50 rounded-md">
+                <span className="text-xs font-mono px-3 py-1 bg-gray-950 text-sky-400 border border-sky-800/50 rounded-md">
                   Featured Application
                 </span>
                 <h4 className="text-2xl md:text-3xl font-bold text-white mt-3">
                   {selectedProject.title}
                 </h4>
-                <p className="text-emerald-400 font-medium text-sm mt-1">
+                <p className="text-sky-400 font-medium text-sm mt-1">
                   {selectedProject.subtitle}
                 </p>
               </div>
@@ -191,7 +191,7 @@ export default function ProjectSection() {
               <div className="flex items-center gap-4 pt-2">
                 {/* <a
                   href={selectedProject.liveUrl}
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold rounded-lg text-sm transition-colors"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold rounded-lg text-sm transition-colors"
                 >
                   Live Preview <ExternalLink className="w-4 h-4" />
                 </a> */}
@@ -218,7 +218,7 @@ export default function ProjectSection() {
                       key={idx}
                       className="p-4 bg-slate-950/60 border border-slate-800/80 rounded-xl hover:border-slate-700 transition-colors"
                     >
-                      <div className="p-2 w-fit bg-slate-900 border border-slate-800 rounded-lg text-emerald-400 mb-3">
+                      <div className="p-2 w-fit bg-slate-900 border border-slate-800 rounded-lg text-sky-400 mb-3">
                         <Icon className="w-5 h-5" />
                       </div>
                       <h6 className="text-sm font-semibold text-slate-100">{feature.title}</h6>

@@ -41,7 +41,7 @@ export default function ContactSection() {
     } catch (error) {
       console.error(error);
       toast.error("Unable to send message.");
-    }finally {
+    } finally {
       setLoading(false);
     }
   }
@@ -53,10 +53,11 @@ export default function ContactSection() {
       <div className="w-full max-w-xl mx-auto px-4 z-10">
 
         <div className="bg-slate-900 border border-slate-800 rounded-t-xl p-3 flex items-center justify-between border-b-0">
-          <div className="flex items-center gap-2">
-            <span className="w-5 h-3 rounded-full bg-red-500/80 inline-block" />
-            <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block" />
-            <span className="w-3 h-6 rounded-full bg-green-500/80 inline-block" />
+          <div className="grid grid-cols-2 gap- 0.1 w-6 h-6 items-center">
+            <div className="w-2.5 h-2.5 bg-sky-500  hover:opacity-80 transition-opacity" />
+            <div className="w-2.5 h-2.5 bg-sky-500  hover:opacity-80 transition-opacity" />
+            <div className="w-2.5 h-2.5 bg-sky-500  hover:opacity-80 transition-opacity" />
+            <div className="w-2.5 h-2.5 bg-sky-500  hover:opacity-80 transition-opacity" />
           </div>
           <div className="flex items-center gap-2  text-slate-400 font-sans ">
             <span>contact.me</span>
@@ -69,9 +70,9 @@ export default function ContactSection() {
 
           <div className="mb-6 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center justify-center gap-2">
-              <span className="text-emerald-400">&lt;</span>
+              <span className="text-sky-400">&lt;</span>
               Get In Touch
-              <span className="text-emerald-400">/&gt;</span>
+              <span className="text-sky-400">/&gt;</span>
             </h2>
             <p className="text-slate-400 text-xs sm:text-sm mt-2 font-sans">
               Have a project in mind or want to collaborate? Send a message directly to my inbox.
@@ -83,7 +84,7 @@ export default function ContactSection() {
             {/* Name Input */}
             <div>
               <label htmlFor="name" className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                <User className="w-3.5 h-3.5 text-emerald-400" />
+                <User className="w-3.5 h-3.5 text-sky-400" />
                 Name
               </label>
               <input
@@ -93,7 +94,7 @@ export default function ContactSection() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="'Your Name'"
-                className="w-full px-4 py-2.5 bg-slate-950/80 text-slate-100 placeholder-slate-600 border border-slate-800 rounded-lg focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all text-sm"
+                className="w-full px-4 py-2.5 bg-slate-950/80 text-slate-100 placeholder-slate-600 border border-slate-800 rounded-lg focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all text-sm"
                 required
               />
             </div>
@@ -101,7 +102,7 @@ export default function ContactSection() {
             {/* Email Input */}
             <div>
               <label htmlFor="email" className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                <Mail className="w-3.5 h-3.5 text-emerald-400" />
+                <Mail className="w-3.5 h-3.5 text-sky-400" />
                 Email
               </label>
               <input
@@ -111,7 +112,7 @@ export default function ContactSection() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="your@gmail.com"
-                className="w-full px-4 py-2.5 bg-slate-950/80 text-slate-100 placeholder-slate-600 border border-slate-800 rounded-lg focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all text-sm"
+                className="w-full px-4 py-2.5 bg-slate-950/80 text-slate-100 placeholder-slate-600 border border-slate-800 rounded-lg focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all text-sm"
                 required
               />
             </div>
@@ -119,7 +120,7 @@ export default function ContactSection() {
             {/* Message Input */}
             <div>
               <label htmlFor="message" className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
+                <MessageSquare className="w-3.5 h-3.5 text-sky-400" />
                 Message
               </label>
               <textarea
@@ -129,7 +130,7 @@ export default function ContactSection() {
                 onChange={handleChange}
                 placeholder="Write your idea, offer, or query here..."
                 rows={5}
-                className="w-full px-4 py-2.5 bg-slate-950/80 text-slate-100 placeholder-slate-600 border border-slate-800 rounded-lg focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all text-sm resize-none"
+                className="w-full px-4 py-2.5 bg-slate-950/80 text-slate-100 placeholder-slate-600 border border-slate-800 rounded-lg focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all text-sm resize-none"
                 required
               />
             </div>
@@ -137,7 +138,7 @@ export default function ContactSection() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-3 px-6 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-[0.99] cursor-pointer text-sm"
+              className="w-full py-3 px-6 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-[0.99] cursor-pointer text-sm"
             >
               <span> {loading ? "Sending..." : "Send Message"} </span>
               <Send className="w-4 h-4" />
