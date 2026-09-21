@@ -16,19 +16,31 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 relative flex items-center justify-between bg-[#010101] border-b border-gray-800 px-6 md:px-10 py-2">
-      {/* Logo */}
+    <nav className="sticky top-0 z-50 relative flex items-center justify-between bg-[#222121]  px-6 md:px-10 py-2">
+
       <Link href="/" onClick={closeMenu}>
-        <Image
-          src="/log.png"
-          alt="Logo"
-          width={60}
-          height={60}
-          className="rounded-full"
-        />
+        <svg
+          className="h-10"
+          viewBox="0 0 320 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <text
+            x="50%"
+            y="55%"
+            dominantBaseline="middle"
+            textAnchor="middle"
+            fill="#abc"
+            fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+            fontSize="36"
+            fontWeight="700"
+          >
+            _sushil_
+          </text>
+        </svg>
       </Link>
 
-      {/* Mobile Menu Button */}
+
       <button
         type="button"
         onClick={toggleMenu}
@@ -36,26 +48,12 @@ const Navbar = () => {
         aria-label="Toggle navigation"
         aria-expanded={isOpen}
       >
-        <span
-          className={`block h-1 w-6 bg-gray-400 mb-1 rounded transition-all duration-300 ${
-            isOpen ? "rotate-45 translate-y-2" : ""
-          }`}
-        />
-
-        <span
-          className={`block h-1 w-6 bg-gray-400 mb-1 rounded transition-all duration-300 ${
-            isOpen ? "opacity-0" : "opacity-100"
-          }`}
-        />
-
-        <span
-          className={`block h-1 w-6 bg-gray-400 rounded transition-all duration-300 ${
-            isOpen ? "-rotate-45 -translate-y-2" : ""
-          }`}
-        />
+        <span className={`block h-1 w-6 bg-gray-400 mb-1 rounded transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2" : "" }`}/>
+        <span className={`block h-1 w-6 bg-gray-400 mb-1 rounded transition-all duration-300 ${isOpen ? "opacity-0" : "opacity-100"}`}/>
+        <span className={`block h-1 w-6 bg-gray-400 rounded transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}/>
       </button>
 
-      {/* Navigation */}
+
       <ul
         className={`
           absolute left-0 top-full w-full

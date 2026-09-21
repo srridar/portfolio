@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
-import { 
-  Github, 
-  MessageSquare, 
-  Video, 
-  ShieldCheck, 
-  FileUp, 
-  Activity, 
-  Smartphone, 
-  ShoppingBag, 
-  Store, 
+import {
+  Github,
+  MessageSquare,
+  Video,
+  ShieldCheck,
+  FileUp,
+  Activity,
+  Smartphone,
+  ShoppingBag,
+  Store,
   Image as ImageIcon,
   Truck,
   MapPin,
-  Users
-} from 'lucide-react';
+  Users,
+  Car,
+  Gauge,
+  Layers,
+  Zap,
+  Palette,
+} from "lucide-react";
 
 const projects = [
   {
@@ -93,7 +98,71 @@ const projects = [
       desc: "Separate dashboards and permissions for Buyers, Sellers, Transporters, and Admins with JWT-based authentication and authorization."
     },
   ],
-}
+},
+{
+  id: "porsche",
+  title: "Porsche",
+  subtitle: "Interactive Luxury Car Showcase",
+  description:
+    "A Porsche-inspired car showcase website built with React and TypeScript. The project focuses on creating a clean, premium interface where users can explore different Porsche models, view detailed specifications, and switch between vehicle information through reusable components and structured car data.",
+
+  metrics: [
+    { label: "Architecture", value: "React + TypeScript" },
+    { label: "UI", value: "Responsive / Component-Based" },
+    { label: "Models", value: "911 / Cayenne / Macan....." },
+  ],
+
+  techStack: [
+    "React",
+    "TypeScript",
+    "Vite",
+    "Tailwind CSS",
+    "Lucide React",
+    "React Icons",
+  ],
+
+  liveUrl: "#",
+  githubUrl: "https://github.com/srridar/PorscheWeb",
+
+  features: [
+    {
+      icon: Car,
+      title: "Porsche Model Showcase",
+      desc:
+        "Explore different Porsche models including the 911, Cayenne, Macan, Panamera, and Taycan through a structured and interactive interface.",
+    },
+    {
+      icon: Gauge,
+      title: "Detailed Car Specifications",
+      desc:
+        "Each vehicle is backed by structured TypeScript data containing specifications such as power, torque, performance, drivetrain, and other model-specific details.",
+    },
+    {
+      icon: Layers,
+      title: "Reusable Components",
+      desc:
+        "The interface is built with reusable React components and shared data structures so new vehicle models and specifications can be added without rebuilding the UI.",
+    },
+    {
+      icon: Zap,
+      title: "Electric Vehicle Data",
+      desc:
+        "The project also handles detailed electric vehicle specifications such as electric motor power, combined power, and torque for models like the Taycan.",
+    },
+    {
+      icon: Smartphone,
+      title: "Responsive Interface",
+      desc:
+        "The layout adapts across desktop, tablet, and mobile screen sizes while maintaining the visual style of a premium automotive website.",
+    },
+    {
+      icon: Palette,
+      title: "Premium Automotive UI",
+      desc:
+        "A minimal, image-focused interface inspired by modern automotive websites, with emphasis on typography, vehicle imagery, spacing, and clean interactions.",
+    },
+  ],
+},
 ];
 
 
@@ -105,30 +174,24 @@ export default function ProjectSection() {
   return (
     <section id="projects" className="py-20 bg-gray-750 text-slate-100 font-sans">
       <div className="max-w-6xl mx-auto px-6">
-        
-        {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-sm font-semibold tracking-widest text-sky-400 uppercase mb-2">
-            Selected Works
-          </h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-            Featured Projects
-          </h3>
+
+          <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight"> Featured Projects </h3>
           <p className="mt-4 text-slate-400 text-base">
             Architecting robust web applications with modern technology stacks, focusing on real-time systems and scalable commerce platforms.
           </p>
         </div>
 
-        {/* Project Selector Tabs */}
+  
         <div className="flex justify-center mb-10">
-          <div className="inline-flex p-1.5 bg-slate-900 border border-slate-800 rounded-xl">
+          <div className="inline-flex p-1.5  border border-slate-800 rounded-xl">
             {projects.map((project) => (
               <button
                 key={project.id}
                 onClick={() => setActiveTab(project.id)}
                 className={`px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                   activeTab === project.id
-                    ? 'bg-sky-500 text-slate-950 shadow-md font-semibold'
+                    ? 'bg-slate-600 text-slate-950 shadow-md font-semibold'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -138,43 +201,32 @@ export default function ProjectSection() {
           </div>
         </div>
 
-        {/* Active Project Card */}
+
         <div className=" border border-slate-800 rounded-2xl p-6 md:p-10 shadow-xl backdrop-blur-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            {/* Left Column: Information & Metrics */}
             <div className="lg:col-span-5 space-y-6">
               <div>
-                <span className="text-xs font-mono px-3 py-1 bg-gray-950 text-sky-400 border border-sky-800/50 rounded-md">
+                <span className="text-xs font-mono px-3 py-1 bg-gray-950 text-slate-400 rounded-md">
                   Featured Application
                 </span>
-                <h4 className="text-2xl md:text-3xl font-bold text-white mt-3">
-                  {selectedProject.title}
-                </h4>
-                <p className="text-sky-400 font-medium text-sm mt-1">
-                  {selectedProject.subtitle}
-                </p>
+                <h4 className="text-2xl md:text-3xl font-bold text-white mt-3"> {selectedProject.title} </h4>
+                <p className="text-slate-500 font-medium text-sm mt-1"> {selectedProject.subtitle} </p>
               </div>
 
-              <p className="text-slate-300 text-sm leading-relaxed">
-                {selectedProject.description}
-              </p>
+              <p className="text-slate-300 text-sm leading-relaxed">  {selectedProject.description} </p>
 
-              {/* Metrics */}
-              <div className="grid grid-cols-3 gap-3 py-4 border-y border-slate-800">
+              <div className="grid grid-cols-3 gap-3 py-4 ">
                 {selectedProject.metrics.map((metric, idx) => (
                   <div key={idx} className="text-center">
                     <p className="text-xs text-slate-500 font-medium">{metric.label}</p>
-                    <p className="text-sm font-bold text-slate-200 mt-2">{metric.value}</p>
+                    <p className="text-xs font-semibold text-slate-200 mt-2">{metric.value}</p>
                   </div>
                 ))}
               </div>
 
-              {/* Tech Stack Badges */}
               <div>
-                <h5 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
-                  Technologies Used
-                </h5>
+                <h5 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3"> Technologies Used </h5>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.techStack.map((tech) => (
                     <span
@@ -187,7 +239,7 @@ export default function ProjectSection() {
                 </div>
               </div>
 
-              {/* Action Buttons */}
+  
               <div className="flex items-center gap-4 pt-2">
                 {/* <a
                   href={selectedProject.liveUrl}
@@ -205,9 +257,9 @@ export default function ProjectSection() {
               </div>
             </div>
 
-            {/* Right Column: Key Features Grid */}
+   
             <div className="lg:col-span-7">
-              <h5 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
+              <h5 className="text-xs font-semibold text-slate-400  tracking-wider mb-4">
                 Core Engineering Features
               </h5>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -216,9 +268,9 @@ export default function ProjectSection() {
                   return (
                     <div
                       key={idx}
-                      className="p-4 bg-slate-950/60 border border-slate-800/80 rounded-xl hover:border-slate-700 transition-colors"
+                      className="p-4 bg-[#181818] border border-slate-800/80 rounded-xl hover:border-slate-700 transition-colors"
                     >
-                      <div className="p-2 w-fit bg-slate-900 border border-slate-800 rounded-lg text-sky-400 mb-3">
+                      <div className="p-2 w-fit  rounded-lg text-slate-700 mb-3">
                         <Icon className="w-5 h-5" />
                       </div>
                       <h6 className="text-sm font-semibold text-slate-100">{feature.title}</h6>
@@ -231,9 +283,6 @@ export default function ProjectSection() {
 
           </div>
         </div>
-
-       
-
       </div>
     </section>
   );
