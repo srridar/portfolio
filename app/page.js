@@ -10,7 +10,7 @@ import HeroSection from "@/components/hero/HeroSection";
 export default function Home() {
 
   return (
-    <div  className="bg-black text-slate-100 font-mono">
+    <div  className="bg-[#f1ece2] text-black font-mono">
       <section id="home" >
          <HeroSection />
       </section>

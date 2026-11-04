@@ -44,34 +44,34 @@ const skillCategories = [
 
 export default function SkillsSection() {
   return (
-    <section id="skill" className="py-20 text-slate-100 font-mono">
+    <section id="skill" className="py-20  font-mono bg-[#f1ece2]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white flex items-center justify-center gap-2">
+          <h2 className="text-3xl font-bold tracking-tight  flex items-center justify-center gap-2">
             Technical Skills
           </h2>
-          <p className="text-slate-400 text-sm mt-3 font-sans max-w-xl mx-auto">
+          <p className="text-slate-500 text-lg mt-3  max-w-xl mx-auto">
             Technologies, languages, and frameworks I leverage to build scalable web applications and real-time systems.
           </p>
         </div>
 
 
-        <div className="space-y-8">
+        <div className="space-y-4">
           {skillCategories.map((cat, idx) => (
             <div key={idx}  className=" rounded-2xl p-4 sm:p-7 backdrop-blur-sm">
               <div className="flex items-center gap-2 mb-4 pb-3">
-                <h3 className="text-xl font-semibold text-slate-500 tracking-wide">
+                <h3 className="text-sm  text-slate-500 tracking-wide">
                   {cat.category}
                 </h3>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-3 sm:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-4">
                 {cat.skills.map((skill, sIdx) => (
                   <div key={sIdx}
-                    className="flex flex-col items-center justify-center p-3 bg-gray-950/80  rounded-xl  hover:bg-gray-900 transition-all duration-300 group"
+                    className="flex flex-col items-center justify-center p-3   rounded-xl   transition-all duration-300 group"
                   >
-                    <div className="relative w-8 h-8 sm:w-14 sm:h-14 mb-3 flex items-center justify-center">
+                    <div className="relative w-8 h-8 sm:w-10 sm:h-10 mb-3 flex items-center justify-center">
                       <Image
                         src={skill.src}
                         alt={skill.name}
@@ -80,7 +80,7 @@ export default function SkillsSection() {
                         className="object-contain max-h-full rounded-md group-hover:scale-110 transition-transform duration-300"
                       />
                     </div>
-                    <span className="text-xs sm:text-sm font-medium text-slate-300 group-hover:text-gray-400 transition-colors">
+                    <span className="text-xs sm:text-sm font-medium text-black transition-colors">
                       {skill.name}
                     </span>
                   </div>

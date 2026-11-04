@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
-import { Send, Mail, User, MessageSquare } from 'lucide-react';
-import { toast } from 'sonner';
+import React, { useState } from "react";
+import { toast } from "sonner";
+
+
+
+const fieldClass =
+  "w-full border-0  bg-transparent px-0 py-2.5 text-[15px] text-[#1f1c17] " +
+  "placeholder:text-[#1f1c17]/35 transition-colors focus:border-[#1f1c17] focus:outline-none focus:ring-0";
+
+const labelClass = "mb-1 block text-sm font-semibold uppercase tracking-[0.10em] text-[#1f1c17]/55";
 
 export default function ContactSection() {
-
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev, [e.target.name]: e.target.value,
-    }));
+  const handleChange = (
+    e
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
@@ -31,100 +37,94 @@ export default function ContactSection() {
       }
 
       toast.success(data.message);
-
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
-
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error(error);
       toast.error("Unable to send message.");
     } finally {
       setLoading(false);
     }
-  }
-
+  };
 
   return (
-    <section id="contact" className="min-h-screen py-20  text-slate-100 flex items-center justify-center relative overflow-hidden font-mono">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" />
-      <div className="w-full max-w-xl mx-auto px-4 z-10">
+    <section
+      id="contact"
+      className="px-6 py-24 text-[#1f1c17]"
+      style={{ background: "#f1ece2" }}
+    >
+      <div className="mx-auto grid max-w-6xl gap-14  pt-14 lg:grid-cols-12">
 
-        <div className="bg-slate-900/90 rounded-xl p-6 sm:p-8 shadow-2xl backdrop-blur-md">
-          <div className="mb-6 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center justify-center gap-2">
-              Get In Touch
-            </h2>
-            <p className="text-slate-400 text-xs sm:text-sm mt-2 font-sans">
-              Have a project in mind or want to collaborate? Send a message directly to my inbox.
-            </p>
+        <div className="lg:col-span-5">
+          <h2  className="text-5xl  md:text-6xl">
+            Let&rsquo;s build
+            <br />
+            <span className="font-normal">something.</span>
+          </h2>
+          <p className="mt-6 max-w-sm text-base leading-relaxed text-[#1f1c17]/70">
+            Have a project in mind or want to collaborate? Send a message
+            straight to my inbox and I&rsquo;ll get back to you.
+          </p>
+        </div>
+
+   
+        <form onSubmit={handleSubmit} className="space-y-8 lg:col-span-6 lg:col-start-7">
+          <div>
+            <label htmlFor="name" className={labelClass}>
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Your name"
+              className={fieldClass}
+              required
+            />
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5 text-slate-200">
-            <div>
-              <label htmlFor="name" className=" text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                <User className="w-3.5 h-3.5 text-slate-400" />
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="'Your Name'"
-                className="w-full px-4 py-2.5 bg-slate-950/80 text-slate-100 placeholder-slate-600 border border-slate-800 rounded-lg focus:outline-none focus:border-slate-500 focus:ring-1 focus:ring-slate-500 transition-all text-sm"
-                required
-              />
-            </div>
+          <div>
+            <label htmlFor="email" className={labelClass} >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="you@example.com"
+              className={fieldClass}
+              required
+            />
+          </div>
 
-            <div>
-              <label htmlFor="email" className=" text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                <Mail className="w-3.5 h-3.5 text-slate-400" />
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="your@gmail.com"
-                className="w-full px-4 py-2.5 bg-slate-950/80 text-slate-100 placeholder-slate-600 border border-slate-800 rounded-lg focus:outline-none focus:border-slate-500 focus:ring-1 focus:ring-slate-500 transition-all text-sm"
-                required
-              />
-            </div>
+          <div>
+            <label htmlFor="message" className={labelClass} >
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Write your idea, offer, or query here..."
+              rows={5}
+              className={`${fieldClass} resize-none`}
+              required
+            />
+          </div>
 
-            <div>
-              <label htmlFor="message" className=" text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                <MessageSquare className="w-3.5 h-3.5 text-slate-400" />
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Write your idea, offer, or query here..."
-                rows={5}
-                className="w-full px-4 py-2.5 bg-slate-950/80 text-slate-100 placeholder-slate-600 border border-slate-800 rounded-lg focus:outline-none focus:border-salte-500 focus:ring-1 focus:ring-slate-500 transition-all text-sm resize-none"
-                required
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full py-3 px-6 bg-slate-500 hover:bg-slate-400 text-slate-950 font-bold rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-[0.99] cursor-pointer text-sm"
-            >
-              <span> {loading ? "Sending..." : "Send Message"} </span>
-              <Send className="w-4 h-4" />
-            </button>
-
-          </form>
-
-        </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className="inline-flex items-center gap-2 bg-[#1f1c17] px-7 py-2 text-sm rounded font-semibold text-[#f1ece2] transition-colors hover:bg-[#676665] disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {loading ? "Sending..." : "Send message"}
+            <span aria-hidden>&rarr;</span>
+          </button>
+        </form>
       </div>
     </section>
   );
